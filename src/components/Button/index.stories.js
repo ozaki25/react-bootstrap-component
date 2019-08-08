@@ -6,6 +6,8 @@ import Button from '.';
 
 const stories = storiesOf('Button', module);
 
-stories.add('通常パターン', () => (
-  <Button children={text('label', 'Hello')} onClick={action('click')} />
-));
+stories.add(
+  '通常パターン',
+  () => <Button children={text('label', 'Hello')} onClick={action('click')} />,
+  { info: 'ボタンのコンポーネントです' },
+);
