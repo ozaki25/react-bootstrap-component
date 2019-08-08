@@ -7,7 +7,33 @@ import Button from '.';
 const stories = storiesOf('Button', module);
 
 stories.add(
-  '通常パターン',
-  () => <Button children={text('label', 'Hello')} onClick={action('click')} />,
-  { info: 'ボタンのコンポーネントです' },
+  'nomal',
+  () => (
+    <Button children={text('label', 'Hello')} onClick={action('click')} nomal />
+  ),
+  { info: 'nomalを渡すと白いボタンになる' },
+);
+
+stories.add(
+  'primary',
+  () => (
+    <Button
+      children={text('label', 'Hello')}
+      onClick={action('click')}
+      primary
+    />
+  ),
+  { info: 'primaryを渡すと青いボタンになる' },
+);
+
+stories.add(
+  'disabled',
+  () => (
+    <Button
+      children={text('label', 'Hello')}
+      onClick={action('click')}
+      disabled
+    />
+  ),
+  { info: 'disabledを渡すと非活性状態になる' },
 );
