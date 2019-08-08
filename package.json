@@ -6,6 +6,8 @@
   "author": "ozaki <fs65ugumori@yahoo.co.jp>",
   "license": "MIT",
   "dependencies": {
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-react": "^7.0.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },
@@ -17,9 +19,17 @@
     "@storybook/addon-links": "^5.1.10",
     "@storybook/addons": "^5.1.10",
     "@storybook/react": "^5.1.10",
-    "babel-loader": "^8.0.6"
+    "autoprefixer": "^9.6.1",
+    "babel-loader": "^8.0.6",
+    "rollup": "^1.19.4",
+    "rollup-plugin-buble": "^0.19.8",
+    "rollup-plugin-commonjs": "^10.0.2",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-postcss": "^2.0.3",
+    "rollup-plugin-terser": "^5.1.1"
   },
   "scripts": {
+    "build": "rollup -c build/rollup.config.js",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   }
