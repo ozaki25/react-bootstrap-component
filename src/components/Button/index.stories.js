@@ -7,11 +7,9 @@ import Button from '.';
 const stories = storiesOf('Button', module);
 
 stories.add(
-  'nomal',
-  () => (
-    <Button children={text('label', 'Hello')} onClick={action('click')} nomal />
-  ),
-  { info: 'nomalを渡すと白いボタンになる' },
+  'default',
+  () => <Button children={text('label', 'Hello')} onClick={action('click')} />,
+  { info: 'デフォルトのボタン' },
 );
 
 stories.add(

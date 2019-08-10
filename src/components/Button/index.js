@@ -37,117 +37,110 @@ const StyledButton = styled.button`
     filter: alpha(opacity=65);
     pointer-events: none;
   }
-  ${({ nomal }) =>
-    nomal &&
-    `
-    color: #333;
-    background-color: #fff;
-    border-color: #ccc;
-    &:focus,
-    &.focus {
-      color: #333;
-      background-color: darken(#fff, 10%);
-      border-color: darken(#ccc, 25%);
-    }
-    &:hover {
-      color: #333;
-      background-color: darken(#fff, 10%);
-      border-color: darken(#ccc, 12%);
-    }
-    &:active,
-    &.active,
-    .open > &.dropdown-toggle {
-      color: #333;
-      background-color: darken(#fff, 10%);
-      background-image: none;
-      border-color: darken(#ccc, 12%);
-
-      &:hover,
-      &:focus,
-      &.focus {
-        color: #333;
-        background-color: darken(#fff, 17%);
-        border-color: darken(#ccc, 25%);
-      }
-    }
-    &.disabled,
-    &[disabled],
-    fieldset[disabled] & {
-      &:hover,
-      &:focus,
-      &.focus {
-        background-color: #fff;
-        border-color: #ccc;
-      }
-    }
-
-    .badge {
-      color: #fff;
-      background-color: #333;
-    }
-  `}
-  ${({ primary }) =>
-    primary &&
-    `
-    color: #fff;
-    background-color: #337ab7;
-    border-color: #2e6da4;
-
-    &:focus,
-    &.focus {
-      color: #fff;
-      background-color: darken(#337ab7, 10%);
-      border-color: darken(#2e6da4, 25%);
-    }
-    &:hover {
-      color: #fff;
-      background-color: darken(#337ab7, 10%);
-      border-color: darken(#2e6da4, 12%);
-    }
-    &:active,
-    &.active,
-    .open > &.dropdown-toggle {
-      color: #fff;
-      background-color: darken(#337ab7, 10%);
-      background-image: none;
-      border-color: darken(#2e6da4, 12%);
-
-      &:hover,
-      &:focus,
-      &.focus {
-        color: #fff;
-        background-color: darken(#337ab7, 17%);
-        border-color: darken(#2e6da4, 25%);
-      }
-    }
-    &.disabled,
-    &[disabled],
-    fieldset[disabled] & {
-      &:hover,
-      &:focus,
-      &.focus {
-        background-color: #337ab7;
-        border-color: #2e6da4;
-      }
-    }
-
-    .badge {
-      color: #337ab7;
-      background-color: #fff;
-    }
-  `}
 `;
 
-function Button({ children, onClick, nomal, primary, disabled }) {
+const NomalButton = styled(StyledButton)`
+  color: #333;
+  background-color: #fff;
+  border-color: #ccc;
+  &:focus,
+  &.focus {
+    color: #333;
+    background-color: #e5e5e5;
+    border-color: #999;
+  }
+  &:hover {
+    color: #333;
+    background-color: #e5e5e5;
+    border-color: #b3b3b3;
+  }
+  &:active,
+  &.active,
+  .open > &.dropdown-toggle {
+    color: #333;
+    background-color: #e5e5e5;
+    background-image: none;
+    border-color: #b3b3b3;
+
+    &:hover,
+    &:focus,
+    &.focus {
+      color: #333;
+      background-color: #d3d3d3;
+      border-color: #999;
+    }
+  }
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    &:hover,
+    &:focus,
+    &.focus {
+      background-color: #fff;
+      border-color: #ccc;
+    }
+  }
+
+  .badge {
+    color: #fff;
+    background-color: #333;
+  }
+`;
+const PrimaryButton = styled(StyledButton)`
+  color: #fff;
+  background-color: #337ab7;
+  border-color: #2e6da4;
+
+  &:focus,
+  &.focus {
+    color: #fff;
+    background-color: #2d6da4;
+    border-color: #22517b;
+  }
+  &:hover {
+    color: #fff;
+    background-color: #2d6da4;
+    border-color: #285f90;
+  }
+  &:active,
+  &.active,
+  .open > &.dropdown-toggle {
+    color: #fff;
+    background-color: #2d6da4;
+    background-image: none;
+    border-color: #285f90;
+
+    &:hover,
+    &:focus,
+    &.focus {
+      color: #fff;
+      background-color: #2a6597;
+      border-color: #22517b;
+    }
+  }
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    &:hover,
+    &:focus,
+    &.focus {
+      background-color: #337ab7;
+      border-color: #2e6da4;
+    }
+  }
+
+  .badge {
+    color: #337ab7;
+    background-color: #fff;
+  }
+`;
+
+function Button({ children, onClick, primary, disabled }) {
+  const ButtonComponent = primary ? PrimaryButton : NomalButton;
   return (
-    <StyledButton
-      onClick={onClick}
-      nomal={nomal}
-      primary={primary}
-      disabled={disabled}
-    >
+    <ButtonComponent onClick={onClick} disabled={disabled}>
       {children}
-    </StyledButton>
+    </ButtonComponent>
   );
 }
 
