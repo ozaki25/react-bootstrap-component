@@ -8,18 +8,14 @@ const stories = storiesOf('Button', module);
 
 stories.add(
   'default',
-  () => <Button children={text('label', 'Hello')} onClick={action('click')} />,
+  () => <Button label={text('label', 'Hello')} onClick={action('click')} />,
   { info: 'デフォルトのボタン' },
 );
 
 stories.add(
   'primary',
   () => (
-    <Button
-      children={text('label', 'Hello')}
-      onClick={action('click')}
-      primary
-    />
+    <Button label={text('label', 'Hello')} onClick={action('click')} primary />
   ),
   { info: 'primaryを渡すと青いボタンになる' },
 );
@@ -27,11 +23,7 @@ stories.add(
 stories.add(
   'disabled',
   () => (
-    <Button
-      children={text('label', 'Hello')}
-      onClick={action('click')}
-      disabled
-    />
+    <Button label={text('label', 'Hello')} onClick={action('click')} disabled />
   ),
   { info: 'disabledを渡すと非活性状態になる' },
 );

@@ -135,11 +135,19 @@ const PrimaryButton = styled(StyledButton)`
   }
 `;
 
-function Button({ children, onClick, primary, disabled }) {
+function Button({ label, type, onClick, primary, disabled, ...props }) {
   const ButtonComponent = primary ? PrimaryButton : NomalButton;
+  const isInput = type === 'input';
   return (
-    <ButtonComponent onClick={onClick} disabled={disabled}>
-      {children}
+    <ButtonComponent
+      onClick={onClick}
+      disabled={disabled}
+      as={type}
+      type={isInput ? 'submit' : 'button'}
+      value={isInput ? label : null}
+      {...props}
+    >
+      {isInput ? null : label}
     </ButtonComponent>
   );
 }
