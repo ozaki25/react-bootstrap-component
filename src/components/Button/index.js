@@ -1,7 +1,7 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-const StyledButton = styled.button`
+const baseButton = css`
   display: inline-block;
   margin: 0;
   padding: 6px 12px;
@@ -39,7 +39,8 @@ const StyledButton = styled.button`
   }
 `;
 
-const NomalButton = styled(StyledButton)`
+const NomalButton = styled.button`
+  ${baseButton}
   color: #333;
   background-color: #fff;
   border-color: #ccc;
@@ -86,7 +87,9 @@ const NomalButton = styled(StyledButton)`
     background-color: #333;
   }
 `;
-const PrimaryButton = styled(StyledButton)`
+
+const PrimaryButton = styled.button`
+  ${baseButton}
   color: #fff;
   background-color: #337ab7;
   border-color: #2e6da4;
