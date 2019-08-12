@@ -32,12 +32,12 @@ const panelHeadingPrimary = css`
 `;
 
 const PanelHeading = styled.div`
-  ${({ type }) =>
-    type === 'primary' ? panelHeadingPrimary : panelHeadingDefault}
   padding: 10px 15px;
   border-bottom: 1px solid transparent;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
+  ${({ type }) =>
+    type === 'primary' ? panelHeadingPrimary : panelHeadingDefault}
 `;
 
 const PanelTitle = styled.h3`
@@ -52,14 +52,14 @@ const PanelBody = styled.div`
   padding: 15px;
 `;
 
-function Panel({ title, children, primary }) {
+function Panel({ title, children, primary, withTable }) {
   const type = primary ? 'primary' : 'default';
   return (
     <StyledPanel type={type}>
       <PanelHeading type={type}>
         <PanelTitle>{title}</PanelTitle>
       </PanelHeading>
-      <PanelBody>{children}</PanelBody>
+      {withTable ? children : <PanelBody>{children}</PanelBody>}
     </StyledPanel>
   );
 }
