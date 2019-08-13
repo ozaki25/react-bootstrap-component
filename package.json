@@ -1,7 +1,7 @@
 {
   "name": "react-bootstrap-component",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dist/index.js",
   "repository": "git@github.com:ozaki25/react-bootstrap-component.git",
   "author": "ozaki <fs65ugumori@yahoo.co.jp>",
   "license": "MIT",
