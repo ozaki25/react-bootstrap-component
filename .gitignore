@@ -24,5 +24,3 @@ storybook-static/
 /.env
 
 .vscode/
-
-dist
