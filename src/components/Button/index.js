@@ -1,6 +1,27 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 
+const buttonXs = css`
+  padding: 1px 5px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 3px;
+`;
+
+const buttonSm = css`
+  padding: 5px 10px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 3px;
+`;
+
+const buttonLg = css`
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.3333333;
+  border-radius: 6px;
+`;
+
 const baseButton = css`
   display: inline-block;
   margin: 0;
@@ -37,6 +58,14 @@ const baseButton = css`
     filter: alpha(opacity=65);
     pointer-events: none;
   }
+  ${({ size }) =>
+    size === 'xs'
+      ? buttonXs
+      : size === 'sm'
+      ? buttonSm
+      : size === 'lg'
+      ? buttonLg
+      : null}
 `;
 
 const NomalButton = styled.button`
@@ -138,7 +167,7 @@ const PrimaryButton = styled.button`
   }
 `;
 
-function Button({ label, type, onClick, primary, disabled, ...props }) {
+function Button({ label, type, onClick, primary, disabled, size, ...props }) {
   const ButtonComponent = primary ? PrimaryButton : NomalButton;
   const isInput = type === 'input';
   return (
@@ -148,6 +177,7 @@ function Button({ label, type, onClick, primary, disabled, ...props }) {
       as={type}
       type={isInput ? 'submit' : 'button'}
       value={isInput ? label : null}
+      size={size}
       {...props}
     >
       {isInput ? null : label}
