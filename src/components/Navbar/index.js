@@ -30,9 +30,7 @@ const NavbarBrand = styled.a`
   color: #777;
   &:hover,
   &:focus {
-    color: #e5e5e5;
     text-decoration: none;
-    background-color: transparent;
   }
 `;
 
@@ -69,21 +67,25 @@ const NavbarText = styled.p`
   float: right;
 `;
 
-function Navbar({ title, titleLink, links, text }) {
+function Navbar({ title = {}, links = [] }) {
+  const { text, tag, ...titleProps } = title;
   return (
     <StyledNav>
       <Container>
         <NavbarHeader>
-          <NavbarBrand href={titleLink || '#'}>{title}</NavbarBrand>
+          <NavbarBrand as={tag || 'a'} {...titleProps}>
+            {text}
+          </NavbarBrand>
         </NavbarHeader>
         <NavbarLinks>
-          {links.map(({ text, href }) => (
+          {links.map(({ text, tag, ...linkProps }) => (
             <NavbarLink>
-              <NavbarLinkAnchor href={href || '#'}>{text}</NavbarLinkAnchor>
+              <NavbarLinkAnchor as={tag || 'a'} {...linkProps}>
+                {text}
+              </NavbarLinkAnchor>
             </NavbarLink>
           ))}
         </NavbarLinks>
-        <NavbarText>{text}</NavbarText>
       </Container>
     </StyledNav>
   );

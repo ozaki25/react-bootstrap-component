@@ -10,13 +10,14 @@ stories.add(
   'default',
   () => (
     <Navbar
-      title={text('title', 'タイトル')}
+      title={{
+        text: text('title', 'タイトル'),
+      }}
       links={[
         { text: 'リンク1', href: '/link1' },
         { text: 'リンク2', href: '/link2' },
         { text: 'リンク3', href: '/link3' },
       ]}
-      text={text('text', 'ユーザ1さん')}
     />
   ),
   {
